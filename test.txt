@@ -1,0 +1,31 @@
+A
+LangChain agent is a system that uses a large language model (LLM) as a reasoning engine to decide which actions to take, and in what sequence, to accomplish a task. Unlike a simple chain, which follows a predefined set of steps, an agent can dynamically choose its path based on the user's input and the results it observes. 
+How a LangChain agent works
+The process is an iterative loop in which the agent receives a high-level goal and then follows these steps: 
+
+    Reasoning: The LLM determines the best course of action based on the user's request. It can break down a complex problem into smaller, manageable sub-tasks.
+    Tool selection: The LLM chooses the appropriate "tool" from a predefined set of options to execute the next action. These tools can include web search, database queries, code execution, or calling an external API.
+    Execution: The agent runs the selected tool.
+    Observation: The agent observes the result of the executed tool and feeds that information back into the LLM.
+    Iteration: The process repeats, with the LLM using the new information to decide on the next step. This continues until the task is complete or a predefined stopping condition is met. 
+
+Agent vs. chain
+A core distinction exists between an agent and a chain in LangChain: 
+
+    Chain: A fixed, hardcoded sequence of actions. The flow of information is predetermined, making it reliable for linear, repeatable processes. For example, a chain could be hardcoded to always summarize a document and then translate it.
+    Agent: A dynamic system that uses an LLM to decide the sequence of actions. This flexibility allows it to handle more ambiguous, complex tasks that require dynamic problem-solving. 
+
+Key components
+For an agent to function, it needs two main components: 
+
+    Tools: Functions that allow the LLM to interact with the outside world, giving it access to up-to-date information, calculations, and more. Examples include a Google Search tool or a Python interpreter.
+    Memory: Gives the agent the ability to remember previous interactions. This provides context, allowing for more relevant responses and a more coherent conversational flow. 
+
+Example: Finding the population of Tokyo
+If a user asks, "What is the population of Tokyo divided by 2?", a LangChain agent would execute the following steps: 
+
+    Reasoning: The agent determines it needs to find the population of Tokyo and then perform a division.
+    Action: It uses a web search tool with the query "population of Tokyo."
+    Observation: The search result returns a number, such as "14 million."
+    Action: It uses a calculator tool and passes it the instruction "14 million / 2."
+    Final Response: The agent provides the final answer to the user. 
